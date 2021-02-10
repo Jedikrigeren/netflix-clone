@@ -5,7 +5,7 @@ import { useFavoriteMovies } from "./hooks/useFavoriteStatus";
 import { MovieEntry } from "./components/MovieEntry/MovieEntry";
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState("ses");
+  const [searchQuery, setSearchQuery] = useState("Avengers");
   const [favoriteMovies] = useFavoriteMovies();
 
   const favoriteMovieElements = favoriteMovies.map((e, i) => <MovieEntry key={i} imdbID={e.imdbID} posterUrl={e.posterUrl} title={e.title} />);
@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <div className="container">
         <h1 className="movie-list-header"> Movies </h1>
-        <input className="container-input" type="text" onChange={changeSearcCriteria} value={searchQuery} placeholder="Type to search..." />
+        <input className="container-input" type="text" onChange={changeSearchCriteria} value={searchQuery} placeholder="Type to search..." />
       </div>
       <MovieList searchQuery={searchQuery} />
       <div className="container">
@@ -24,7 +24,7 @@ function App() {
     </div>
   );
 
-  function changeSearcCriteria(event) {
+  function changeSearchCriteria(event) {
     setSearchQuery(event.target.value);
   }
 

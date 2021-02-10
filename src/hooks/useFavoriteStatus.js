@@ -15,7 +15,6 @@ export function useFavoriteMovies() {
   }
 
   function setFavoriteMovies(movies) {
-    console.log(movies);
     _setFavoriteMovies(movies);
     localStorage.setItem("favoriteMovies", JSON.stringify(movies));
   }
